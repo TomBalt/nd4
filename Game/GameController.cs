@@ -18,40 +18,42 @@ namespace ConsoleGame.Game
         private Dice dice = new Dice();
         private int highestScoreNumber;
         private bool winnerNotFound = false;
-      //  private GameOverMenu gameOverMenu;
-      //  private string gameOverMenuChoice;
 
         public void StartGame()
         {
-
-            // init game
             InitGame();
-
+            RollTheDice();
+            /*
             do
             {
-                // render loop
                 StartPlayingGame(players);
-
                 findAWinner(players);
             } while (winnerNotFound);
-
-          //  gameOverMenu.GetGameOverMenuAnswere();
-            
-
+            */
         }
 
         public void ReplayGame()
         {
-            winnerNotFound = true;
+            //winnerNotFound = true;
             Console.Clear();
             Console.WriteLine($"Replaying game with {numberOfPLayers} number of and number {numberOfDices} of dices.");
             Console.ReadKey();
             preparePlayersForAGame(numberOfPLayers);
+            RollTheDice();
+            /*
             do
             {
-                // render loop
                 StartPlayingGame(players);
+                findAWinner(players);
+            } while (winnerNotFound);
+            */
+        }
 
+        private void RollTheDice() {
+            winnerNotFound = true;
+            do
+            {
+                StartPlayingGame(players);
                 findAWinner(players);
             } while (winnerNotFound);
         }
@@ -116,7 +118,7 @@ namespace ConsoleGame.Game
             winnerNotFound = numberOfWinners(listOfScores, highestScoreNumber);
             if (winnerNotFound)
             {
-                Console.WriteLine($"More than one player with highest score:  ${highestScoreNumber}");
+                Console.WriteLine("Prepare for a NEW ROUND!");
                 prepareForAnotherRound(gamePlayers, highestScoreNumber);
                 Console.ReadKey();
             }

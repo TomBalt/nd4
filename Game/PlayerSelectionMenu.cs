@@ -32,7 +32,7 @@ namespace ConsoleGame.Game
             P3 = new Button(38, 13, 18, 5, "P3");
             P4 = new Button(56, 13, 18, 5, "P4");
             P5 = new Button(20, 17, 18, 5, "P5");
-            
+
             P6 = new Button(38, 17, 18, 5, "P6");
             P7 = new Button(56, 17, 18, 5, "P7");
 
@@ -61,7 +61,7 @@ namespace ConsoleGame.Game
 
         public int GetNumberOfPlayers()
         {
-           do
+            do
             {
                 Render();
                 ConsoleKeyInfo pressedButton = readInput();
@@ -76,14 +76,22 @@ namespace ConsoleGame.Game
             {
                 case ConsoleKey.Enter:
                     numberOfPlayers = possition + 2;
-                     notSelectedNumberOfPlayers = false;
+                    notSelectedNumberOfPlayers = false;
                     break;
-               
+
                 case ConsoleKey.RightArrow:
-                    setActiveButtonOrder();
+                    // setActiveButtonOrderLeftRight();
+                    MoveActiveButtonToRight();
                     break;
                 case ConsoleKey.LeftArrow:
-                    setActiveButtonOrder(false);
+                    MoveActiveButtonToLeft();
+                    //setActiveButtonOrderLeftRight(false);
+                    break;
+                case ConsoleKey.UpArrow:
+                    MoveActiveButtonToUp();
+                    break;
+                case ConsoleKey.DownArrow:
+                    MoveActiveButtonToDown();
                     break;
             }
 
@@ -117,35 +125,40 @@ namespace ConsoleGame.Game
             return pressedChar;
         }
 
-        
 
-       
-
-
-        public void setActiveButtonOrder(bool add = true)
+        public void MoveActiveButtonToRight()
         {
-            if (possition >= 0 && possition < allButtons.Count)
+            if (possition >= 0 && possition <= allButtons.Count - 2)
             {
-
-
-                if (add == true)
-                {
-                    if (possition <= allButtons.Count - 2)
-                    {
-                        possition++;
-                    }
-
-                }
-                else
-                {
-                    if (possition > 0)
-                    {
-                        possition--;
-                    }
-
-                }
+                possition++;
             }
         }
+
+        public void MoveActiveButtonToLeft()
+        {
+            if (possition > 0)
+            {
+                possition--;
+            }
+        }
+
+        public void MoveActiveButtonToUp()
+        {
+            if (possition > 2 && possition <= allButtons.Count - 1)
+            {
+                possition -= 3;
+            }
+        }
+
+        public void MoveActiveButtonToDown()
+        {
+            if (possition >= 0 && possition < 3)
+            {
+
+                    possition += 3;
+            }
+        }
+
         private void renderActive(int possition)
         {
             for (int i = 0; i < allButtons.Count; i++)

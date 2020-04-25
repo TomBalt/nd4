@@ -39,7 +39,6 @@ namespace ConsoleGame.Game
 
         public string GetGameOverMenuAnswere()
         {
-            //read input and act accordingly
             do
             {
                 Render();
