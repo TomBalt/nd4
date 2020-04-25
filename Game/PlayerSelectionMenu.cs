@@ -61,7 +61,6 @@ namespace ConsoleGame.Game
 
         public int GetNumberOfPlayers()
         {
-            //read input and act accordingly
            do
             {
                 Render();
@@ -89,8 +88,6 @@ namespace ConsoleGame.Game
             }
 
         }
-
-
         private ConsoleKeyInfo readInput()
         {
             bool invalidButtonPressed = false;

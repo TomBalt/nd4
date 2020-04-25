@@ -11,24 +11,21 @@ namespace ConsoleGame.Gui
     {
 
         private TextBlock titleTextBlock;
-        // private PlayerSelectionMenu playerSelectionMenu;
         private GameController gameController;
-        private bool continueToRunProgram = true;
         private GameOverMenu gameOverMenu;
-        bool playAgain = true;
+        private bool continueToRunProgram = true;
+        private bool playAgain = true;
 
         public MainMenu() : base(0, 0, 120, 30, '%')
         {
 
             titleTextBlock = new TextBlock(10, 5, 100, new List<String> { "Press P to Play.", "Press Q to Quit." });
-            //  playerSelectionMenu = new PlayerSelectionMenu();
             gameController = new GameController();
             gameOverMenu = new GameOverMenu();
         }
 
         public override void Render()
         {
-            
             do
             {
                 Console.Clear();
@@ -38,11 +35,16 @@ namespace ConsoleGame.Gui
                 titleTextBlock.Render();
 
                 ChooseMainMenuOption();
-                Console.Clear();
-                playAgain = true;
-                while (playAgain)
+                if (continueToRunProgram)
                 {
-                    ChooseGameOverOption();
+                    Console.Clear();
+
+                    playAgain = true;
+
+                    while (playAgain)
+                    {
+                        ChooseGameOverOption();
+                    }
                 }
             } while (continueToRunProgram);
         }
@@ -61,16 +63,15 @@ namespace ConsoleGame.Gui
                     {
                         case ConsoleKey.R:
                             gameController.ReplayGame();
-                            notValidKeyPress = false;
-                            
+                            notValidKeyPress = false;   
                             break;
                         case ConsoleKey.M:
                             notValidKeyPress = false;
                         playAgain = false;
                             break;
                         case ConsoleKey.Q:
-                        playAgain = false;
-                        continueToRunProgram = false;
+                            playAgain = false;
+                            continueToRunProgram = false;
                             notValidKeyPress = false;
                             break;
                     }
@@ -102,6 +103,5 @@ namespace ConsoleGame.Gui
                 }
             } while (notValidKeyPress);
         }
-
     }
 }

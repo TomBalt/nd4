@@ -12,21 +12,9 @@ namespace ConsoleGame.Gui
         private GameWindow gameWindow;
         private GameController gameController;
         private bool continueProgram = true;
-        private MainMenu mainMenu;
-
-        public GuiController()
-        {
-
-            MainMenu mainMenu = new MainMenu();
-            //this.gameWindow = gameWindow;
-
-            //this.gameController = gameController;
-            this.mainMenu = mainMenu;
-        }
-
-
-
-
+        private MainMenu mainMenu = new MainMenu();
+        
+        
         public void ShowMainMenu()
         { 
             mainMenu.Render();

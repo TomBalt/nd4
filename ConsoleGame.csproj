@@ -56,12 +56,9 @@
     <Compile Include="Gui\TextLine.cs" />
     <Compile Include="Gui\Window.cs" />
     <Compile Include="Units\Dice.cs" />
-    <Compile Include="Units\Enemy.cs" />
     <Compile Include="Game\GameController.cs" />
     <Compile Include="Game\GameScreen.cs" />
-    <Compile Include="Units\Hero.cs" />
     <Compile Include="Units\Player.cs" />
-    <Compile Include="Units\Unit.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -8,7 +8,7 @@ namespace ConsoleGame.Gui
 {
     class Window : GuiObject
     {
-        private Frame _border;
+        private Frame border;
 
         public Window(int x, int y, int width, int height, char borderChar) : base(x, y, width, height)
         {
@@ -17,12 +17,12 @@ namespace ConsoleGame.Gui
             Width = width;
             Height = height;
 
-            _border = new Frame(x, y, width, height, borderChar);
+            border = new Frame(x, y, width, height, borderChar);
         }
 
         public override void Render()
         {
-            _border.Render();
+            border.Render();
         }
     }
 }
