@@ -101,7 +101,7 @@ namespace ConsoleGame.Game
             winnerNotFound = numberOfWinners(listOfScores, highestScoreNumber);
             if (winnerNotFound)
             {
-                GameNotificationWindow newRoundWindow = new GameNotificationWindow( new List<string>() { "No winner was found!", " " , "     NEW ROUND" });
+                GameNotificationWindow newRoundWindow = new GameNotificationWindow( new List<string>() { "More than one high scorer", " " , "     NEW ROUND" });
                 newRoundWindow.Render();
                 prepareForAnotherRound(gamePlayers, highestScoreNumber);
                 Console.ReadKey();

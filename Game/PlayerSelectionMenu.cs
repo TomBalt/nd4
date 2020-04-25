@@ -26,15 +26,15 @@ namespace ConsoleGame.Game
 
             titleTextBlock = new TextBlock(10, 5, 100, new List<String> { "Please choose number of players!" });
 
-            P2 = new Button(20, 13, 18, 5, "P2");
+            P2 = new Button(30, 13, 18, 5, "P2");
             P2.SetActive(true);
 
-            P3 = new Button(38, 13, 18, 5, "P3");
-            P4 = new Button(56, 13, 18, 5, "P4");
-            P5 = new Button(20, 17, 18, 5, "P5");
+            P3 = new Button(48, 13, 18, 5, "P3");
+            P4 = new Button(56+10, 13, 18, 5, "P4");
+            P5 = new Button(20+10, 17, 18, 5, "P5");
 
-            P6 = new Button(38, 17, 18, 5, "P6");
-            P7 = new Button(56, 17, 18, 5, "P7");
+            P6 = new Button(38+10, 17, 18, 5, "P6");
+            P7 = new Button(56+10, 17, 18, 5, "P7");
 
             allButtons.Add(P2);
             allButtons.Add(P3);
