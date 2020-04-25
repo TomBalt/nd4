@@ -11,7 +11,6 @@ namespace ConsoleGame.Game
     {
         private PlayerSelectionMenu playerSelectionMenu;
         private DiceSelectionMenu diceSelectionMenu;
-        private GameScreen myGame;
         private int numberOfPLayers;
         private int numberOfDices;
         private List<Player> players = new List<Player>();
@@ -23,30 +22,15 @@ namespace ConsoleGame.Game
         {
             InitGame();
             RollTheDice();
-            /*
-            do
-            {
-                StartPlayingGame(players);
-                findAWinner(players);
-            } while (winnerNotFound);
-            */
         }
 
         public void ReplayGame()
         {
-            //winnerNotFound = true;
             Console.Clear();
             Console.WriteLine($"Replaying game with {numberOfPLayers} number of and number {numberOfDices} of dices.");
             Console.ReadKey();
             preparePlayersForAGame(numberOfPLayers);
             RollTheDice();
-            /*
-            do
-            {
-                StartPlayingGame(players);
-                findAWinner(players);
-            } while (winnerNotFound);
-            */
         }
 
         private void RollTheDice() {
@@ -62,8 +46,7 @@ namespace ConsoleGame.Game
         {
             diceSelectionMenu = new DiceSelectionMenu();
             playerSelectionMenu = new PlayerSelectionMenu();
-            myGame = new GameScreen(30, 20);
-
+           
             numberOfPLayers = playerSelectionMenu.GetNumberOfPlayers();
             preparePlayersForAGame(numberOfPLayers);
             
@@ -118,7 +101,8 @@ namespace ConsoleGame.Game
             winnerNotFound = numberOfWinners(listOfScores, highestScoreNumber);
             if (winnerNotFound)
             {
-                Console.WriteLine("Prepare for a NEW ROUND!");
+                GameNotificationWindow newRoundWindow = new GameNotificationWindow( new List<string>() { "No winner was found!", " " , "     NEW ROUND" });
+                newRoundWindow.Render();
                 prepareForAnotherRound(gamePlayers, highestScoreNumber);
                 Console.ReadKey();
             }
@@ -128,8 +112,8 @@ namespace ConsoleGame.Game
                 {
                     if (p.Score == highestScoreNumber)
                     {
-                        
-                        Console.WriteLine("Winner is found: "+p.Name);
+                        GameNotificationWindow winnerWindow = new GameNotificationWindow( new List<string>() { "Winner of the game!!!","      " + p.Name, "With a score of "+ highestScoreNumber });
+                        winnerWindow.Render();
                         Console.ReadKey();
                     }
                 }

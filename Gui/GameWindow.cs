@@ -8,28 +8,14 @@ namespace ConsoleGame.Gui
 {
     sealed class GameWindow : Window
     {
-        private Button startButton;
-        private Button creditsButton;
-        private Button quitButton;
         private TextBlock titleTextBlock;
         private int possition = 0;
         List<Button> allButtons = new List<Button>();
 
-        public GameWindow() : base(0, 0, 120, 30, '%')
+        public GameWindow(List<String> titleText) : base(0, 0, 120, 30, '%')
         {
 
-            titleTextBlock = new TextBlock(10, 5, 100, new List<String> { "Super duper zaidimas", "Tomas Baltusis kuryba!", "Made in basement as a startup game!!!" });
-
-            startButton = new Button(20, 13, 18, 5, "Start");
-            startButton.SetActive(true);
-
-            creditsButton = new Button(50, 13, 18, 5, "Credits");
-
-            quitButton = new Button(80, 13, 18, 5, "Quit");
-
-            allButtons.Add(startButton);
-            allButtons.Add(creditsButton);
-            allButtons.Add(quitButton);
+            titleTextBlock = new TextBlock(10, 5, 100, titleText);
 
         }
 

@@ -8,14 +8,8 @@ namespace ConsoleGame.Units
 {
     class Dice
     {
-        public int Score { get; set; }
-      
-
-        public Dice() { 
-            
-        }
-       
-
+        public int Score { get; private set; }
+        
         public void ThrowADice() {
             var rand = new Random();
             Score = rand.Next(1, 6);

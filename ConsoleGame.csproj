@@ -44,8 +44,8 @@
   <ItemGroup>
     <Compile Include="Game\DiceSelectionMenu.cs" />
     <Compile Include="Game\GameOverMenu.cs" />
+    <Compile Include="Game\GameNotificationWindow.cs" />
     <Compile Include="Gui\Button.cs" />
-    <Compile Include="Gui\CreditWindow.cs" />
     <Compile Include="Gui\Frame.cs" />
     <Compile Include="Gui\GameWindow.cs" />
     <Compile Include="Gui\GuiController.cs" />
@@ -57,7 +57,6 @@
     <Compile Include="Gui\Window.cs" />
     <Compile Include="Units\Dice.cs" />
     <Compile Include="Game\GameController.cs" />
-    <Compile Include="Game\GameScreen.cs" />
     <Compile Include="Units\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

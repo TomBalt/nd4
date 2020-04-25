@@ -15,11 +15,12 @@ namespace ConsoleGame
         {
 
             Console.CursorVisible = false;
-  
-            
-            GuiController guiController = new GuiController();
 
-            guiController.ShowMainMenu();
+          
+
+          GuiController guiController = new GuiController();
+
+          guiController.ShowMainMenu();
         }
     }
 }
